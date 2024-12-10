@@ -3,8 +3,8 @@ const nodemailer = require('nodemailer');
 const app = express();
 
 const port = 3000;
-const user = "iapp.reports@iniciativaaplicativos.com.br";
-const pass = "JG@2024?123";
+const user = "****";
+const pass = "******";
 
 // Função para gerar senha aleatória
 function gerarSenhaAleatoria(tamanho = 8) {
@@ -23,7 +23,7 @@ app.get('/send', (req, res) => {
     const mensagemTexto = `Olá! Sua senha foi redefinida com sucesso. \n\nNova senha: ${novaSenha} \n\nPor favor, altere-a assim que possível.`;
     console.log("Email enviado com nova senha !")
     const transporter = nodemailer.createTransport({
-        host: 'smtp.office365.com',
+        host: '******',
         port: 587,
         secure: false, // true para 465, false para 587
         auth: { user, pass },
@@ -31,7 +31,7 @@ app.get('/send', (req, res) => {
 
     transporter.sendMail({
         from: user,
-        to:'juliocmaximus@gmail.com',
+        to:'******',
         subject: "Redefinição de Senha",
         text: mensagemTexto, // Usar a mensagem com a senha gerada
     })
